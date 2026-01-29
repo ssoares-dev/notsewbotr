@@ -1,0 +1,170 @@
+.catalog-container {
+  width: 100%;
+  height: 100%;              /* 👈 ocupa só o espaço da sidebar */
+  background: #f0f0f0;
+  border-right: 1px solid #ccc;
+  padding: 24px 0 24px 18px;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;            /* cresce dentro da sidebar */
+  min-height: 0;             /* permite encolher até à altura disponível */
+  overflow: visible;          /* o scroll fica APENAS na .catalog-list */
+  transition: width 0.25s ease, padding 0.25s ease;
+  flex-direction: row;
+}
+
+/* MODO COLAPSADO: fica mais estreito visualmente */
+.catalog-container.collapsed {
+  width: 88px;
+  padding: 24px 0 24px 8px;
+}
+
+/* BOTÃO DENTRO, VISÍVEL E NO MEIO */
+.catalog-toggle {
+  grid-column: 2;
+  align-self: center;          /* centrado na vertical */
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* IMAGEM DA SETA */
+.catalog-toggle-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.catalog-list {
+  flex: 1 1 auto;
+  min-height: 0;             /* 👈 importantíssimo para o scroll funcionar */
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 4px;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.catalog-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+
+/* ITEM */
+.catalog-item {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+
+  flex: 0 0 300px; /* altura base */
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+
+  /* borda fina cinza + leve sombra, como o sistema original */
+  border: 2px solid transparent;            /* para não saltar de tamanho */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+}
+
+/* ESTADO SELECIONADO – borda verde limpa */
+.catalog-item.selected {
+  border-color: #00c48c;                    /* verde mais suave */
+  box-shadow: 0 0 0 1px rgba(0, 196, 140, .35);
+  transform: translateY(-1px);
+}
+.catalog-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.catalog-item.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #00b373;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: tick-pop 0.25s ease-out;
+}
+
+@keyframes tick-pop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.catalog-container.collapsed .catalog-item.selected::after {
+  display: none;
+}
+
+.catalog-container.running .catalog-item {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+
+/* INFO SOBREPOSTA (NOME + LINHAS) APENAS QUANDO EXPANDIDO */
+.catalog-info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px 12px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.0) 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.catalog-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.catalog-seams {
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+/* QUANDO COLAPSADO, ESCONDE TEXTO E REDUZ ALTURA DOS CARDS */
+.catalog-container.collapsed .catalog-info {
+  display: none;
+}
+
+.catalog-container.collapsed .catalog-item {
+  height: 56px;
+  flex-basis: 56px;
+}

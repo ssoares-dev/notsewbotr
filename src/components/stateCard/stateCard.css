@@ -1,0 +1,222 @@
+.state-card {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  padding: 18px 22px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER: título + tempo total */
+.state-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.state-time-label {
+  font-size: clamp(12px, 1.3vw, 15px);
+  color: #9ca3af;
+  margin-bottom: 2px;
+}
+
+.state-time-value {
+  font-size: clamp(30px, 1.8vw, 40px);
+  font-weight: 600;
+  color: #111827;
+}
+
+.state-divider {
+  border: none;
+  border-top: 1px solid #ededed;
+  margin: 12px 0 10px;
+}
+
+.state-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.state-list::-webkit-scrollbar {
+  display: none;
+}
+
+.state-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 400;
+}
+
+.state-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.state-label {
+  flex: 1;
+  color: #111827;
+}
+
+.state-time {
+  color: #6b7280;
+  font-size: clamp(10px, 0.9vw, 12px);
+  margin-right: 6px;
+  font-weight: 500;
+}
+
+.state-badge {
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: clamp(10px, 0.9vw, 12px);
+  margin-left: 6px;
+  display: inline-block;
+}
+
+/* SEÇÃO DE LINHAS SELECIONADAS - estilo consistente */
+.state-selected-section {
+  background: #f0f9ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+}
+
+.state-selected-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.state-selected-header .state-label {
+  font-size: clamp(11px, 1vw, 13px);
+  font-weight: 500;
+  color: #111827;
+  flex: 1;
+}
+
+.state-count {
+  background: #3b82f6;
+  color: white;
+  font-size: clamp(10px, 0.9vw, 12px);
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 8px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.state-selected-lines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.state-selected-badge {
+  background: #dbeafe;
+  color: #1e40af;
+  font-size: clamp(10px, 0.9vw, 12px);
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 8px;
+  border: 1px solid #93c5fd;
+}
+
+/* ESTADO VAZIO */
+.state-empty {
+  flex: 1;
+  min-height: 0;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.state-empty img {
+  max-width: 120px;
+  width: 40%;
+  height: auto;
+  opacity: 0.9;
+}
+
+.state-empty-text {
+  font-size: clamp(11px, 1vw, 13px);
+}
+
+/* MÁQUINA */
+.state-machine {
+  border-top: 1px solid #ededed;
+  padding-top: 10px;
+  margin-top: 10px;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(11px, 1vw, 13px);
+}
+
+.state-machine-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.state-machine-label {
+  color: #111827;
+}
+
+.state-machine-bars {
+  display: flex;
+  gap: 3px;
+}
+
+.state-machine-bars span {
+  display: block;
+  width: 4px;
+  height: 14px;
+  border-radius: 3px;
+  background: #19c197;
+  animation: machine-bars 1s infinite alternate;
+}
+
+.state-machine-bars span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.state-machine-bars span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes machine-bars {
+  0% {
+    opacity: 0.5;
+    transform: scaleY(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}

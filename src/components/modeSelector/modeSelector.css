@@ -1,0 +1,76 @@
+.mode-selector-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+
+.mode-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #777;
+}
+
+/* Grupo cinza com as duas opções */
+.mode-group {
+  display: flex;
+  background: #f3f4f6;
+  padding: 4px;
+  border-radius: 20px;
+  gap: 4px;
+}
+
+/* Botão base */
+.mode-option {
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 16px;
+  cursor: pointer;
+  color: #111;
+  font-weight: 500;
+  transition: 0.25s ease;
+  white-space: nowrap;
+}
+
+.mode-option:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Ativo (verde) */
+.mode-option.active {
+  background: #00b373;
+  color: #fff;
+  box-shadow: 0 0 0 1px rgba(0, 179, 115, 0.35);
+}
+
+/* Badge roxa do nº de linhas */
+.mode-count-pill {
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 11px;
+  background: #3b82f6;
+;
+  color: #fff;
+  white-space: nowrap;
+}
+
+/* Botão "Todas" */
+.mode-all-button {
+  border: 1px solid #e2e4ea;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 4px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #111;
+  font-weight: 400;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.mode-all-button:hover {
+  background: #f3f4f6;
+}

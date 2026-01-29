@@ -1,0 +1,113 @@
+.navbar-desktop {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 15px; 
+}
+
+
+.navbar-menu a {
+  color: var(--font);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 400;
+  transition: font-weight 0.2s;
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar-menu a.active {
+  font-weight: 700;
+}
+
+.navbar-left-desktop,
+.navbar-center-desktop,
+.navbar-right-desktop {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left-desktop {
+    flex: 6;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.navbar-center-desktop {
+    flex: 2;
+    justify-content: center;
+}
+
+.navbar-right-desktop {
+    flex: 6;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.navbar-item-desktop {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: clamp(13px, 2.3dvh, 15px);
+    text-align: center;
+    color: #40454b;
+    text-decoration: none;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.main-icon-navbar-desktop {
+    height: clamp(35px, 6.5dvh, 52px);
+}
+
+.header-lang-switch {
+    display: flex;
+    gap: 1px;
+    align-items: start;
+    flex-direction: row;
+    margin-top: 5px;
+    
+}
+
+.header-lang-switch button {
+    background: none;
+    border: none;
+    color: #555;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 11px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.lang-dot {
+    width:4px;
+    height: 4px;
+    border-radius: 50%;
+    justify-content: center;
+    background: #0D3B3F;
+    margin-top: 1px;
+    display: block;
+}
+
+.header-lang-switch .active-lang {
+    color: #0D3B3F;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.navbar-logo-image {
+    height: 25px;
+    cursor: pointer;
+}

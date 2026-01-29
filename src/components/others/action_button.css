@@ -1,0 +1,29 @@
+.action-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(3px, 0.3dvw, 6px);
+    cursor: pointer;
+    background: var(--button);
+    width: 100px;
+    padding: 5px;
+    border-radius: 8px;
+    height: clamp(20px, 2.5dvh, 36px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.action-button-title {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    line-height: normal;
+    font-weight: bold;
+    height: fit-content;
+}
+
+.action-button-icon {
+    width: 20px;
+    height: auto;
+}

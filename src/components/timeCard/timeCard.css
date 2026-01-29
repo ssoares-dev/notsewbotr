@@ -1,0 +1,71 @@
+.time-container {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 16px 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* topo: ícone + label */
+.time-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+   font-size: clamp(9px, 0.7vw, 12px);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #4b5563;
+}
+
+.time-card-icon {
+   width: clamp(16px, 1.2vw, 20px);
+  height: clamp(16px, 1.2vw, 20px);
+  border-radius: 999px;
+  background: rgba(0, 188, 125, 0.08);
+  color: #00bc7d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-card-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* centro: valor grande */
+.time-card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.time-card-value {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.time-card-number {
+  font-size: clamp(20px, 1.8vw, 30px);
+  line-height: 1.1;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* secção dos pontos – já preparada, mas ainda comentada no JSX */
+.time-card-points {
+  font-size: clamp(9px, 0.8vw, 12px);
+  color: #6b7280;
+}

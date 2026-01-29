@@ -1,0 +1,76 @@
+.footer-desktop {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    color: white;
+    height: clamp(25px, 8.5dvh, 40px);
+    left: 0;
+    right: 0;
+    background: #2BC390;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    font-family: "Roboto", sans-serif;
+}
+
+.footer-item-desktop-text {
+    font-size: clamp(6px, 2.3dvh, 9px);
+    text-align: center;
+    color: var(--text-white);
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.footer-item-desktop-logo-adalberto {
+    height: clamp(10px, 2.5dvh, 15px);
+    width: clamp(60px, 8dvw, 88px);
+}
+
+.footer-left-desktop {
+    flex: 6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1%;
+}
+
+.footer-center-desktop {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-right-desktop {
+    flex: 6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.footer-item-desktop {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: clamp(13px, 2.3dvh, 15px);
+    text-align: center;
+    color: #40454b;
+    text-decoration: none;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.footer-item-desktop-logo-textpact {
+    height: clamp(10px, 2.5dvh, 15px);
+    width: clamp(40px, 8dvw, 64px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-item-desktop-logo-prr {
+    height: clamp(10px, 2.5dvh, 15px);
+    width: clamp(30px, 6dvw, 45px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
