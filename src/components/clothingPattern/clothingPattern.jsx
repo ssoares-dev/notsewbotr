@@ -30,15 +30,9 @@ const ClothingPattern = ({
   const scaleFactor = Math.max(0.5, Math.min(2, imageDimensions.width / 500));
 
   useEffect(() => {
-    console.log("[ClothingPattern] useEffect multiSelectedIds:", {
-      mode,
-      multiSelectedIds,
-    });
-
     if (mode !== "selected") return;
     
     const selectedIndexes = multiSelectedIds.map(id => id - 1);
-    console.log("[ClothingPattern] Atualizando selectedLines para:", selectedIndexes);
     setSelectedLines(selectedIndexes);
   }, [multiSelectedIds, mode]);
 
@@ -153,7 +147,6 @@ const ClothingPattern = ({
     if (disableSelection) return;
 
     const line = seamLines[index];
-    console.log("[ClothingPattern] handleLineClick:", { index, line, mode });
 
     setSelectedLines((prev) => {
       let nextSelected;
@@ -161,14 +154,11 @@ const ClothingPattern = ({
       if (mode === "piece") {
         const already = prev.includes(index);
         nextSelected = already ? [] : [index];
-        console.log("[ClothingPattern] Modo piece, nextSelected:", nextSelected);
       } else {
         if (prev.includes(index)) {
           nextSelected = prev.filter((i) => i !== index);
-          console.log("[ClothingPattern] Desselecionando linha, nextSelected:", nextSelected);
         } else {
           nextSelected = [...prev, index];
-          console.log("[ClothingPattern] Selecionando linha, nextSelected:", nextSelected);
         }
       }
 
@@ -180,7 +170,6 @@ const ClothingPattern = ({
           name: line.name,
           selectedIndexes: nextSelected,
         };
-        console.log("[ClothingPattern] Chamando onLineSelect com:", payload);
         onLineSelect(payload);
       }
 
@@ -235,8 +224,6 @@ const ClothingPattern = ({
     if (isInitialSelected) return { fill: "#4da6ff", stroke: "#4da6ff" };
     return { fill: "#fff", stroke: "#bbb" };
   };
-
-  console.log("[ClothingPattern] Render - selectedLines:", selectedLines);
 
   const selectedIdx = selectedLines.length ? selectedLines[0] : null;
   const selectedLine = selectedIdx !== null ? seamLines[selectedIdx] : null;

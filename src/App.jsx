@@ -58,7 +58,6 @@ const clothingItems = [
 
   // 🔹 Quando mudar de modo, limpar seleções anteriores
   useEffect(() => {
-    console.log("[App] Modo mudou para:", sewingMode);
     setSelectedLine(null);
     setMultiSelectedIndexes([]);
   }, [sewingMode]);
@@ -82,11 +81,8 @@ const clothingItems = [
   // 🔹 Handler para seleção de linha no pattern
   const handleLineSelect = (lineInfo) => {
     if (isRunning) {
-      console.log("[App] Ignorar seleção porque está a correr.");
       return;
     }
-
-    console.log("[App] handleLineSelect:", lineInfo, "modo:", sewingMode);
 
     if (sewingMode === "piece") {
       setSelectedLine(lineInfo);
@@ -97,13 +93,11 @@ const clothingItems = [
     } else {
       const selectedIds = (lineInfo.selectedIndexes || []).map(idx => idx + 1);
 
-      console.log('[App] Atualizar multiSelectedIndexes para:', selectedIds);
       setMultiSelectedIndexes(selectedIds);
     }
   };
 
 const handleSelectAll = () => {
-  console.log("[App] handleSelectAll clicado");
   if (sewingMode === "selected") {
     const allLineIds = Array.from({ length: totalLines }, (_, i) => i + 1);
     if (multiSelectedIndexes.length === totalLines) {
@@ -122,10 +116,7 @@ const handleSelectAll = () => {
     const queue = queueRef.current;
     const idx = queueIndexRef.current;
 
-    console.log("[App] runNextLineInQueue:", { queue, idx });
-
     if (idx >= queue.length) {
-      console.log("[App] Todas as costuras concluídas.");
       setInProgressLine(null);
       setSelectedLine(null);
       setIsRunning(false);
@@ -140,8 +131,6 @@ const handleSelectAll = () => {
     const lineCode = `L${lineId}`;
     const lineObj = { id: lineId, code: lineCode, name: lineCode };
 
-    console.log("[App] Iniciar costura da linha:", lineObj);
-
     setInProgressLine(lineObj);
 
     const start = performance.now();
@@ -149,7 +138,6 @@ const handleSelectAll = () => {
 
     runTimeoutRef.current = setTimeout(() => {
       const elapsed = (performance.now() - start) / 1000;
-      console.log("[App] Linha concluída:", { lineId, elapsedSeconds: elapsed });
 
       setFinishedLines((prev) => {
         if (prev.some((l) => l.id === lineId)) return prev;
@@ -163,22 +151,18 @@ const handleSelectAll = () => {
 
   // 🔹 Iniciar
   const handleStart = () => {
-    console.log("[App] handleStart clicado. Modo:", sewingMode, { selectedLine, multiSelectedIndexes });
 
     if (sewingMode === "piece" && !selectedLine) {
-      console.log("[App] Modo piece: sem linha inicial");
       noInitialLine();
       return;
     }
 
     if (sewingMode === "selected" && multiSelectedIndexes.length === 0) {
-      console.log("[App] Modo selected: nenhuma linha selecionada");
       noInitialLine();
       return;
     }
 
     if (isRunning) {
-      console.log("[App] Já está a correr.");
       return;
     }
 
@@ -198,8 +182,6 @@ const handleSelectAll = () => {
       order = [...multiSelectedIndexes].sort((a, b) => a - b);
     }
 
-    console.log("[App] Fila de execução:", order);
-
     queueRef.current = order;
     queueIndexRef.current = 0;
     setIsRunning(true);
@@ -215,8 +197,6 @@ const handleSelectAll = () => {
 
   // 🔹 Reiniciar
   const handleReset = () => {
-    console.log("[App] handleReset clicado.");
-
     setSelectedLine(null);
     setMultiSelectedIndexes([]);
     setInProgressLine(null);

@@ -21,8 +21,6 @@ const Icon = ({ variant }) => {
 function ToastItem({ t, onRemove }) {
   const isAssertive = t.variant === "error" || t.variant === "warning";
 
-  console.log("[ToastItem] render:", t);
-
   return (
     <div
       className={`toast ${t.variant || "neutral"}`}
@@ -52,7 +50,6 @@ function ToastItem({ t, onRemove }) {
 }
 
 const NotificationToast = ({ toasts = [], onRemove }) => {
-  console.log("[NotificationToast] toasts recebidos:", toasts);
 
   if (!toasts.length) return null;
 
